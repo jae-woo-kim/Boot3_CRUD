@@ -1,0 +1,33 @@
+<!doctype html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<!-- Include header -->
+<div th:insert="~{layouts/header :: header}"></div>
+<div class="form-container bg-light">
+  <!-- Content -->
+  <table class="table">
+    <thead>
+    <tr>
+      <th scope="col">Id</th>
+      <th scope="col">Title</th>
+      <th scope="col">Content</th>
+    </tr>
+    </thead>
+    <tbody>
+      <tr th:object="${article}">
+        <td th:text="*{id}"></td>
+        <td th:text="*{title}"></td>
+        <td th:text="*{content}"></td>
+      </tr>
+    </tbody>
+  </table>
+  <a th:href="@{/articles/{id}/edit(id=${article.id})}" class="btn btn-primary">Edit</a>
+  <a th:href="@{/articles/{id}/delete(id=${article.id})}" class="btn btn-danger">Delete</a>
+  <a href="/articles">Go to Article List</a>
+</div>
+
+<!-- 상세 페이지에 댓글 뷰 파일 삽입 -->
+<div th:insert="~{comments/_comments :: _comments}"></div>
+
+<!-- Include footer -->
+<div th:insert="~{layouts/footer :: footer}"></div>

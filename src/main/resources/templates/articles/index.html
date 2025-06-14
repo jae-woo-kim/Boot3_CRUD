@@ -1,0 +1,29 @@
+<!doctype html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<!-- Include header -->
+<div th:insert="~{layouts/header :: header}"></div>
+
+  <!-- Content -->
+<div class="form-container bg-light">
+  <table class="table">
+    <thead>
+    <tr>
+      <th scope="col">Id</th>
+      <th scope="col">Title</th>
+      <th scope="col">Content</th>
+    </tr>
+    </thead>
+    <tbody>
+      <!-- 반복적으로 articleList를 순회하여 출력 -->
+      <tr th:each="article : ${articleList}">
+        <td th:text="${article.id}"></td>
+        <td><a th:href="@{/articles/{id}(id=${article.id})}" th:text="${article.title}"></a></td>
+        <td th:text="${article.content}"></td>
+      </tr>
+    </tbody>
+  </table>
+  <a href="/articles/new">New Article</a>
+</div>
+<!-- Include footer -->
+<div th:insert="~{layouts/footer :: footer}"></div>

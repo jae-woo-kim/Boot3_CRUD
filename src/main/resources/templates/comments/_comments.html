@@ -1,0 +1,10 @@
+<!doctype html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<div th:fragment="_comments">
+    <!-- 댓글 목록 보기 -->
+    <div th:insert="~{comments/_list :: _list}"></div>
+
+    <!-- 새 댓글 작성하기 -->
+    <div th:insert="~{comments/_new :: _new}"></div>
+</div>

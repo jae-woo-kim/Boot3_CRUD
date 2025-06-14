@@ -1,0 +1,25 @@
+<!doctype html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<!-- Include header -->
+<div th:insert="~{layouts/header :: header}"></div>
+
+<!-- Content -->
+<div class="form-container bg-light">
+    <form class="container" action="/articles/create" method="post">
+        <div class="mb-3">
+            <label for="title" class="form-label">제목</label>
+            <input type="text" class="form-control" id="title" name="title" placeholder="제목을 입력하세요">
+        </div>
+        <div class="mb-3">
+            <label for="content" class="form-label">내용</label>
+            <textarea class="form-control" id="content" rows="5" name="content" placeholder="내용을 입력하세요"></textarea>
+        </div>
+        <button type="submit" class="btn btn-primary">Submit</button>
+        <a href="/articles">Back</a>
+    </form>
+</div>
+
+
+<!-- Include footer -->
+<div th:insert="~{layouts/footer :: footer}"></div>

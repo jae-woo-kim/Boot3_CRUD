@@ -1,0 +1,36 @@
+server:
+  port: 8094
+
+spring:
+  application:
+    name: firstproject
+
+    thymeleaf:
+      prefix: classpath:/templates/
+      suffix: .html
+      cache: false
+
+  datasource:
+    url:  jdbc:mysql://localhost:3306/webdb
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    username: dbuser
+    password: 12345
+
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: false
+    properties:
+      hibernate:
+        format_sql: true
+
+logging:
+  level:
+    org:
+      thymeleaf: WARN
+      hibernate:
+        SQL: DEBUG
+        type:
+          descriptor:
+            sql:
+              BasicBinder: TRACE
